@@ -1,0 +1,14 @@
+<GeoWorldClock:CityViewModel xmlns:GeoWorldClock="clr-namespace:GeoWorldClock">
+	<GeoWorldClock:CityViewModel.Cities>
+		<GeoWorldClock:CityItemViewModel City="Vestibulum class adipiscing nam" Lat="616.86" Lng="747.54"/>
+        <GeoWorldClock:CityItemViewModel City="Curabitur sed dis aliquam" Lat="397.24" Lng="242.25"/>
+        <GeoWorldClock:CityItemViewModel City="Cras integer quisque" Lat="405.22" Lng="667.34"/>
+        <GeoWorldClock:CityItemViewModel City="Aenean parturient" Lat="585.42" Lng="253.09"/>
+        <GeoWorldClock:CityItemViewModel City="Est mauris nullam" Lat="250.32" Lng="183.92"/>
+        <GeoWorldClock:CityItemViewModel City="Hac curae phasellus aptent" Lat="431.61" Lng="647.33"/>
+        <GeoWorldClock:CityItemViewModel City="Vestibulum leo donec duis" Lat="806.03" Lng="762.04"/>
+        <GeoWorldClock:CityItemViewModel City="Consequat auctor" Lat="335.47" Lng="375.49"/>
+        <GeoWorldClock:CityItemViewModel City="Vivamus nunc" Lat="373.71" Lng="977.37"/>
+        <GeoWorldClock:CityItemViewModel City="Maecenas praesent" Lat="470.34" Lng="628.25"/>
+        </GeoWorldClock:CityViewModel.Cities>
+</GeoWorldClock:CityViewModel>

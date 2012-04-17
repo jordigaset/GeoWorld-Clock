@@ -1,0 +1,14 @@
+<GeoWorldClock:ClockViewModel xmlns:GeoWorldClock="clr-namespace:GeoWorldClock">
+	<GeoWorldClock:ClockViewModel.Clocks>
+		<GeoWorldClock:ClockItemViewModel City="Maecenas aliquam class curae" GmtOffset="1" Lat="774.56" Lng="588.78" Time="55:55"/>
+        <GeoWorldClock:ClockItemViewModel City="Donec etiam fusce curabitur" GmtOffset="38" Lat="407.19" Lng="432.43" Time="55:55"/>
+        <GeoWorldClock:ClockItemViewModel City="Praesent phasellus lorem" GmtOffset="68" Lat="404.95" Lng="380.79" Time="55:55"/>
+        <GeoWorldClock:ClockItemViewModel City="Morbi integer nam" GmtOffset="11" Lat="343.65" Lng="837.53" Time="55:55"/>
+        <GeoWorldClock:ClockItemViewModel City="Consequat vestibulum sed" GmtOffset="43" Lat="721.08" Lng="886.55" Time="55:55"/>
+        <GeoWorldClock:ClockItemViewModel City="Adipiscing accumsan dis" GmtOffset="72" Lat="387.59" Lng="412.61" Time="55:55"/>
+        <GeoWorldClock:ClockItemViewModel City="Quisque convallis dignissim" GmtOffset="40" Lat="659.52" Lng="106.02" Time="55:55"/>
+        <GeoWorldClock:ClockItemViewModel City="Nulla bibendum vivamus aliquam aenean" GmtOffset="37" Lat="798.26" Lng="930.74" Time="55:55"/>
+        <GeoWorldClock:ClockItemViewModel City="Mauris nullam parturient aptent" GmtOffset="39" Lat="120.52" Lng="887.67" Time="55:55"/>
+        <GeoWorldClock:ClockItemViewModel City="Proin aliquet elementum auctor blandit" GmtOffset="83" Lat="766.85" Lng="143.63" Time="55:55"/>
+	</GeoWorldClock:ClockViewModel.Clocks>
+</GeoWorldClock:ClockViewModel>
