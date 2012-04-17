@@ -31,3 +31,21 @@ C:\Users\Ideaknow\Desktop\GeoWorldClock\GeoWorldClock\Bin\Debug\Microsoft.Phone.
 \\vmware-host\Shared Folders\Projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\GeoWorldClock.g.resources
 \\vmware-host\Shared Folders\Projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\GeoWorldClock.dll
 \\vmware-host\Shared Folders\Projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\GeoWorldClock.pdb
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\ApplicationIcon.png
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\Background.png
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\GeoWorldClock.dll
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\GeoWorldClock.pdb
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\AppManifest.xaml
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\GeoWorldClock.xap
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\Microsoft.Phone.Controls.dll
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\Microsoft.Phone.Controls.Toolkit.dll
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\Microsoft.Phone.Controls.xml
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\Microsoft.Phone.Controls.Toolkit.pdb
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\Microsoft.Phone.Controls.Toolkit.xml
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\ResolveAssemblyReference.cache
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\App.g.i.cs
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\MainPage.g.i.cs
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\GeoWorldClock.g.resources
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\GeoWorldClock.dll
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\GeoWorldClock.pdb
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\XapCacheFile.xml
