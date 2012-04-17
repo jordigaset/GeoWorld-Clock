@@ -11,6 +11,10 @@ using System.Windows.Shapes;
 
 namespace GeoWorldClock
 {
+    /// <summary>
+    /// The clock model
+    /// we need the city name, the location and the offset from GMT time
+    /// </summary>
     public class ClockItemViewModel
     {
         private string _city;

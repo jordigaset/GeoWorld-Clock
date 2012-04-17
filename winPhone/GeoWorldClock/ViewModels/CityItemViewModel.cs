@@ -11,6 +11,10 @@ using System.Windows.Shapes;
 
 namespace GeoWorldClock
 {
+    /// <summary>
+    /// Model for a city
+    /// we need the city name and the location
+    /// </summary>
     public class CityItemViewModel
     {
         private string _city;

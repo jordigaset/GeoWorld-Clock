@@ -12,9 +12,13 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Linq;
 using System.Linq;
+using Microsoft.Phone.Shell;
 
 namespace GeoWorldClock
 {
+    /// <summary>
+    /// All the logic needed to manage the city API calls and the list management
+    /// </summary>
     public class CityViewModel
     {
 
@@ -27,23 +31,6 @@ namespace GeoWorldClock
         /// A collection for CityViewModel objects.
         /// </summary>
         public ObservableCollection<CityItemViewModel> Cities { get; private set; }
-
-        /// <summary>
-        /// convert a coord (lat or long) to double from String
-        /// </summary>
-        /// <param name="coord">The coord to convert</param>
-        /// <returns>The coord converted</returns>
-        public double convertCoordToDouble(String coord)
-        {
-            try
-            {
-                return Convert.ToDouble(coord);
-            }
-            catch
-            {
-                return 0;
-            }
-        }
 
         /// <summary>
         /// load cities from google geolocate service using a cityname criteria
@@ -78,7 +65,10 @@ namespace GeoWorldClock
                 {
                     this.Cities.Add(item);
                 }
+                SystemTray.IsVisible = false;
             };
+
+            SystemTray.IsVisible = true;
             client.OpenReadAsync(new Uri("http://maps.googleapis.com/maps/api/geocode/xml?address=" + cityName + "&sensor=false", UriKind.Absolute));
             
         }
@@ -116,7 +106,22 @@ namespace GeoWorldClock
             }
         }
 
-
+        /// <summary>
+        /// convert a coord (lat or long) to double from String
+        /// </summary>
+        /// <param name="coord">The coord to convert</param>
+        /// <returns>The coord converted</returns>
+        public double convertCoordToDouble(String coord)
+        {
+            try
+            {
+                return Convert.ToDouble(coord);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 
 }

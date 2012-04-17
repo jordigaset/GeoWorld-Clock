@@ -13,9 +13,13 @@ using System.IO;
 using System.Xml.Linq;
 using System.Linq;
 using System.IO.IsolatedStorage;
+using Microsoft.Phone.Shell;
 
 namespace GeoWorldClock
 {
+    /// <summary>
+    /// All the logic needed to manage the clock API calls and the list management
+    /// </summary>
     public class ClockViewModel
     {
 
@@ -36,6 +40,7 @@ namespace GeoWorldClock
 
         /// <summary>
         /// search a lat & long in the geonames.org API to get the timezone, and then, if the clock is not in the list, add to it.
+        /// saveToDisk after adding clock
         /// </summary>
         /// <param name="cityName">city name</param>
         /// <param name="lat">latitude of the city</param>
@@ -77,12 +82,20 @@ namespace GeoWorldClock
                     MessageBox.Show(c.City + " is already on the list.");
                 }                
 
-                str.Close();         
+                str.Close();
+
+                SystemTray.IsVisible = false;
             };
+            SystemTray.IsVisible = true;
             client.OpenReadAsync(new Uri("http://api.geonames.org/timezone?lat=" + lat + "&lng=" + lng + "&username=grjordi"));
             
         }
 
+        /// <summary>
+        /// remove a clock from the list if exists
+        /// savetoDisk after
+        /// </summary>
+        /// <param name="cityName"></param>
         public void remove(string cityName)
         {
             bool found = false;
@@ -153,7 +166,7 @@ namespace GeoWorldClock
         /// <param name="lat">latitude of the city</param>
         /// <param name="lng">longitude of the city</param>
         /// <param name="GmtOffset">The offset from UTC time. Can be positive or negative</param>
-        /// <returns></returns>
+        /// <returns>a ClockItemViewModel correctly created and filled with data</returns>
         public ClockItemViewModel CreateClockViewModel(String cityName, double lat, double lng, double GmtOffset)
         {
             DateTime dateTime = DateTime.Now;
@@ -228,7 +241,7 @@ namespace GeoWorldClock
             }
             else
             {
-                timefile = store.OpenFile("clocks.txt", FileMode.Open, FileAccess.Write);
+                timefile = store.OpenFile("clocks.txt", FileMode.Create, FileAccess.Write);
             }
 
             using (StreamWriter writer = new StreamWriter(timefile))
@@ -258,7 +271,8 @@ namespace GeoWorldClock
                 while ((lines = reader.ReadLine()) != null)
                 {
                     var clockStringModel = lines.Split(';');
-                    Clocks.Add(CreateClockViewModel(clockStringModel[0], double.Parse(clockStringModel[1]), double.Parse(clockStringModel[2]), double.Parse(clockStringModel[3])));
+                    if (clockStringModel.Length==4)
+                        Clocks.Add(CreateClockViewModel(clockStringModel[0], double.Parse(clockStringModel[1]), double.Parse(clockStringModel[2]), double.Parse(clockStringModel[3])));
                 }
             }
 

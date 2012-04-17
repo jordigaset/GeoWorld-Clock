@@ -13,7 +13,14 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="False">
+    shell:SystemTray.IsVisible="False"
+    shell:SystemTray.Opacity=".8"
+    >
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsVisible="True" IsIndeterminate="True" Text="Loading..." />
+    </shell:SystemTray.ProgressIndicator>
+
     <phone:PhoneApplicationPage.Resources>
         <DataTemplate x:Key="CityViewModelTemplate">
             <StackPanel>
@@ -38,7 +45,7 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
 
         <!--Panorama control-->
-        <controls:Panorama Title="Geo World Clock" FontSize="14.667">
+        <controls:Panorama x:Name="mainPanorama" Title="Geo World Clock" FontSize="14.667">
             <controls:Panorama.Background>
                 <ImageBrush ImageSource="worldmap.png" Stretch="None"/>
             </controls:Panorama.Background>
@@ -46,7 +53,11 @@
             <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
             <controls:PanoramaItem Header="Cities" Width="640" Orientation="Horizontal" d:DataContext="{d:DesignData /SampleData/ClockViewModelSampleData.xaml}">
                 <!--Double line list with image placeholder and text wrapping-->
-                <StackPanel Height="490" Margin="0">
+                <Grid Height="490" Margin="0">
+                    <StackPanel x:Name="infoPanel" Margin="0,0,169,0">
+                    	<TextBlock Text="Add the time of a city by typing the city name in the search box" FontSize="32" TextWrapping="Wrap" TextAlignment="Left" />
+                    	<Button Content="start searching" Click="Button_Click"></Button>
+					</StackPanel>
                     <ListBox x:Name="clockListBox" Height="490" ItemTemplate="{StaticResource ClockItemViewModelTemplate}" ItemsSource="{Binding Clocks}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -60,7 +71,7 @@
                         </ListBox.Template>
 
                     </ListBox>
-                </StackPanel>    
+                </Grid>    
             </controls:PanoramaItem>
 
 
