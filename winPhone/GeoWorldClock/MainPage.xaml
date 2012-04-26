@@ -15,6 +15,7 @@
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="False"
     shell:SystemTray.Opacity=".8"
+    toolkit:TiltEffect.IsTiltEnabled="True"
     >
 
     <shell:SystemTray.ProgressIndicator>
@@ -28,7 +29,7 @@
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="ClockItemViewModelTemplate">
-            <StackPanel Background="{StaticResource PhoneAccentBrush}" Width="300" Height="160" Margin="0,0,10,10">
+            <StackPanel Background="{StaticResource PhoneAccentBrush}" Width="300" Height="160" Margin="0,0,10,10" Tap="StackPanel_Tap">
         		<TextBlock Text="{Binding Time}" FontSize="86.667" HorizontalAlignment="Center" Margin="0,-18,0,0" Foreground="White" VerticalAlignment="Top" Padding="0"/>
                 <TextBlock Height="70" TextWrapping="Wrap" Text="{Binding City}" Margin="5,-7,5,0" FontSize="26.667" Foreground="White" HorizontalAlignment="Center"/>
                 <toolkit:ContextMenuService.ContextMenu>
@@ -78,7 +79,7 @@
             <!--Panorama item two-->
             <controls:PanoramaItem Header="add a city" Orientation="Horizontal">
                 <Grid Margin="0" Height="500">
-                    <ListBox x:Name="searchListBox" Margin="0,80,0,0" ItemsSource="{Binding Cities}" ItemTemplate="{StaticResource CityViewModelTemplate}" SelectionChanged="ListBox_SelectionChanged" Width="416" Tap="searchListBox_Tap" />
+                    <ListBox x:Name="searchListBox" Margin="0,80,0,0" ItemsSource="{Binding Cities}" ItemTemplate="{StaticResource CityViewModelTemplate}" Width="416" Tap="searchListBox_Tap" />
                     <toolkit:PhoneTextBox x:Name="searchTextBox" TextWrapping="Wrap" Text="" Hint="search city name" VerticalAlignment="Top" HorizontalAlignment="Left" Width="420" TextChanged="TextBox_TextChanged" Height="74" />
                 </Grid>
                 <!--Double line list with text wrapping-->

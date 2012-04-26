@@ -113,5 +113,16 @@ namespace GeoWorldClock
             mainPanorama.DefaultItem = mainPanorama.Items[1];
             searchTextBox.Focus();
         }
+
+        private void StackPanel_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            StackPanel st = sender as StackPanel;
+
+            TextBlock txCityName = st.Children[1] as TextBlock;
+            int i = App.ClockViewModel.indexOf(txCityName.Text);
+
+            NavigationService.Navigate(new Uri("/map.xaml?indexOfCity=" + i, UriKind.Relative));
+
+        }
     }
 }

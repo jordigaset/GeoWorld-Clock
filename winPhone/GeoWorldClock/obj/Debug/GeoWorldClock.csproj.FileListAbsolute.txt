@@ -49,3 +49,6 @@ C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\GeoWorldClock.g.reso
 C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\GeoWorldClock.dll
 C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\GeoWorldClock.pdb
 C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\XapCacheFile.xml
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\obj\Debug\map.g.i.cs
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\Microsoft.Phone.Controls.Maps.dll
+C:\projects\GeoWorld-Clock\winPhone\GeoWorldClock\Bin\Debug\Microsoft.Phone.Controls.Maps.xml

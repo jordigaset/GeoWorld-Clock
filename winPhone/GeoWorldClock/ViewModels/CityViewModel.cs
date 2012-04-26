@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.IO;
 using System.Xml.Linq;
 using System.Linq;
@@ -115,7 +116,8 @@ namespace GeoWorldClock
         {
             try
             {
-                return Convert.ToDouble(coord);
+                CultureInfo ci = new CultureInfo(CultureInfo.CurrentCulture.Name);
+                return Convert.ToDouble(coord.Replace(",",ci.NumberFormat.CurrencyDecimalSeparator).Replace(".",ci.NumberFormat.CurrencyDecimalSeparator));
             }
             catch
             {

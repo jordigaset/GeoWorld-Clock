@@ -13,7 +13,9 @@ using System.IO;
 using System.Xml.Linq;
 using System.Linq;
 using System.IO.IsolatedStorage;
+using System.Globalization;
 using Microsoft.Phone.Shell;
+using System.Device.Location;
 
 namespace GeoWorldClock
 {
@@ -63,12 +65,14 @@ namespace GeoWorldClock
                 Stream str = e.Result;
                 XDocument xdoc = XDocument.Load(str);
 
+                CultureInfo ci = new CultureInfo(CultureInfo.CurrentCulture.Name);
+
                 //create the Clock element
                 ClockItemViewModel c = CreateClockViewModel(                             
                                  cityName,
                                  lat,
                                  lng,
-                                 Convert.ToDouble(xdoc.Element("geonames").Element("timezone").Element("dstOffset").Value)
+                                 Convert.ToDouble(xdoc.Element("geonames").Element("timezone").Element("dstOffset").Value.Replace(",", ci.NumberFormat.CurrencyDecimalSeparator).Replace(".", ci.NumberFormat.CurrencyDecimalSeparator))
                              );
 
                 //add to list if not found
@@ -87,7 +91,9 @@ namespace GeoWorldClock
                 SystemTray.IsVisible = false;
             };
             SystemTray.IsVisible = true;
-            client.OpenReadAsync(new Uri("http://api.geonames.org/timezone?lat=" + lat + "&lng=" + lng + "&username=grjordi"));
+            String uri = "http://api.geonames.org/timezone?lat=" + lat + "&lng=" + lng + "&username=grjordi";
+            uri = uri.Replace(',','.');
+            client.OpenReadAsync(new Uri(uri));
             
         }
 
@@ -114,6 +120,57 @@ namespace GeoWorldClock
 
             saveToDisk();
         }
+
+        /// <summary>
+        /// remove a clock from the list if exists
+        /// savetoDisk after
+        /// </summary>
+        /// <param name="cityName"></param>
+        public int indexOf(string cityName)
+        {
+            bool found = false;
+            int i = 0;
+            for (i = 0; i < Clocks.Count; i++)
+            {
+                if ((Clocks[i] as ClockItemViewModel).City == cityName)
+                {
+                    found = true;
+                    break;
+                }
+
+            }
+
+            if (found) return i;
+            else return -1;
+
+        }
+
+
+        /// <summary>
+        /// remove a clock from the list if exists
+        /// savetoDisk after
+        /// </summary>
+        /// <param name="cityName"></param>
+        public GeoCoordinate getCoordinate(string cityName)
+        {
+            GeoCoordinate g = new GeoCoordinate(0, 0);
+            bool found = false;
+            int i = 0;
+            for (i = 0; i < Clocks.Count; i++)
+            {
+                if ((Clocks[i] as ClockItemViewModel).City == cityName)
+                {
+                    found = true;
+                    break;
+                }
+
+            }
+
+            if (found) g = new GeoCoordinate(Clocks[i].Lat, Clocks[i].Lng);
+
+            return g;
+        }
+
 
         /// <summary>
         /// Update the time of all the clocks. Must check if it's necessary before call.
@@ -173,7 +230,7 @@ namespace GeoWorldClock
             dateTime = dateTime.ToUniversalTime();
             dateTime = dateTime.Add(TimeSpan.FromHours(GmtOffset));
             string timeStr = dateTime.ToString("hh:mm");
-            return new ClockItemViewModel() { City = cityName, GmtOffset = GmtOffset, Lat = 0.0, Lng = 0.0, Time = timeStr };
+            return new ClockItemViewModel() { City = cityName, GmtOffset = GmtOffset, Lat = lat, Lng = lng, Time = timeStr };
         }
 
         /// <summary>
