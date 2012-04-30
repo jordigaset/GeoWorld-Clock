@@ -7,7 +7,7 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("GeoWorldClock")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("GeoWorldClock allows to search for a timezone of a city bassed on the geolocation of the city. Simply input the city name and you will get a clock with the time of that city.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("GeoWorldClock")]
