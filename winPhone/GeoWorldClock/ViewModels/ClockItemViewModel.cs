@@ -22,6 +22,7 @@ namespace GeoWorldClock
         private double _lng;
         private double _gmtOffset;
         private string _time;
+        private string _date;
 
         public string City
         {
@@ -80,6 +81,18 @@ namespace GeoWorldClock
             set
             {
                 _time = value;
+            }
+        }
+
+        public string Date
+        {
+            get
+            {
+                return _date;
+            }
+            set
+            {
+                _date = value;
             }
         }
 
