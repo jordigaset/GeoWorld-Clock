@@ -14,6 +14,7 @@ using System.IO;
 using System.Xml.Linq;
 using System.Linq;
 using Microsoft.Phone.Shell;
+using Microsoft.Phone.Net.NetworkInformation;
 
 namespace GeoWorldClock
 {
@@ -22,6 +23,8 @@ namespace GeoWorldClock
     /// </summary>
     public class CityViewModel
     {
+
+        private DateTime _lastMessageNoConnection = new DateTime(1970, 1, 1);
 
         public CityViewModel()
         {
@@ -39,6 +42,20 @@ namespace GeoWorldClock
         /// <param name="cityName"></param>
         public void LoadCityItems(String cityName)
         {
+
+            if (!NetworkInterface.GetIsNetworkAvailable())
+            {
+                long totalMiliSecond = (DateTime.UtcNow.Ticks - _lastMessageNoConnection.Ticks) / 10000;
+                if (totalMiliSecond < 10000) return;
+
+                _lastMessageNoConnection = DateTime.UtcNow;
+
+                MessageBox.Show("You need internet connection to request city information. Please, chack your internet connetion and try again.");
+                
+                
+                return;
+            }
+
             WebClient client = new WebClient();
 
             client.OpenReadCompleted += (sender, e) =>

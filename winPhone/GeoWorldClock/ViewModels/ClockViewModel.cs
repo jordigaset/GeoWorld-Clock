@@ -16,6 +16,7 @@ using System.IO.IsolatedStorage;
 using System.Globalization;
 using Microsoft.Phone.Shell;
 using System.Device.Location;
+using Microsoft.Phone.Net.NetworkInformation;
 
 namespace GeoWorldClock
 {
@@ -49,6 +50,12 @@ namespace GeoWorldClock
         /// <param name="lng">longitude of the city</param>
         public void addClock(String cityName, double lat, double lng)
         {
+            if (!NetworkInterface.GetIsNetworkAvailable())
+            {
+                MessageBox.Show("You need internet connection to request timezone information. Please, chack your internet connetion and try again.");
+                return;
+            }
+
             if (Clocks.Count >= 6)
             {
                 MessageBox.Show("You have reached the maximun number of clocks available.");
