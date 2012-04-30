@@ -236,7 +236,7 @@ namespace GeoWorldClock
             DateTime dateTime = DateTime.Now;
             dateTime = dateTime.ToUniversalTime();
             dateTime = dateTime.Add(TimeSpan.FromHours(GmtOffset));
-            string timeStr = dateTime.ToString("hh:mm");
+            string timeStr = dateTime.ToString("H:mm");
             return new ClockItemViewModel() { City = cityName, GmtOffset = GmtOffset, Lat = lat, Lng = lng, Time = timeStr };
         }
 
