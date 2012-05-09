@@ -111,6 +111,7 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="worldmap_white.png" />
     <Resource Include="worldmap.png" />
     <Resource Include="pinMap.png" />
     <Content Include="SplashScreenImage.jpg" />

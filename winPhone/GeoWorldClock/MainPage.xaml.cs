@@ -11,16 +11,35 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using System.Windows.Media.Imaging;
 
 namespace GeoWorldClock
 {
     public partial class MainPage : PhoneApplicationPage
     {
 
+        public ImageBrush PanoramaBackgroundImage
+        {
+            get
+            {
+                var lightThemeEnabled = (Visibility)Application.Current.Resources["PhoneLightThemeVisibility"] == Visibility.Visible;
+
+                var url = lightThemeEnabled ? "worldmap_white.png" : "worldmap.png";
+
+                var brush = new ImageBrush
+                {
+                    ImageSource = new BitmapImage(new Uri(url, UriKind.RelativeOrAbsolute))
+                };
+                return brush;
+            }
+        }
+
         // Constructor
         public MainPage()
         {
             InitializeComponent();
+
+            this.panoramaBackgroundImage.ImageSource = PanoramaBackgroundImage.ImageSource;
 
             // Set the data context of the listbox control to the sample data
             this.searchListBox.DataContext = App.CityViewModel;
@@ -124,5 +143,8 @@ namespace GeoWorldClock
             NavigationService.Navigate(new Uri("/map.xaml?indexOfCity=" + i, UriKind.Relative));
 
         }
+
+
+
     }
 }

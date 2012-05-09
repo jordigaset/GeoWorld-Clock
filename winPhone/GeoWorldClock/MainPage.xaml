@@ -29,8 +29,8 @@
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="ClockItemViewModelTemplate">
-            <StackPanel Background="{StaticResource PhoneAccentBrush}" Width="300" Height="160" Margin="0,0,10,10" Tap="StackPanel_Tap">
-        		<TextBlock Text="{Binding Time}" FontSize="86.667" HorizontalAlignment="Center" Margin="0,-17,0,0" Foreground="White" VerticalAlignment="Top" Padding="0"/>
+            <StackPanel Background="{StaticResource PhoneAccentBrush}" Width="300" Height="156" Margin="0,0,10,10" Tap="StackPanel_Tap">
+        		<TextBlock Text="{Binding Time}" FontSize="86.667" HorizontalAlignment="Center" Margin="0,-24,0,0" Foreground="White" VerticalAlignment="Top" Padding="0"/>
         		<TextBlock Height="70" TextWrapping="Wrap" Text="{Binding City}" Margin="5,-9,5,0" FontSize="26.667" Foreground="White" HorizontalAlignment="Center"/>
                 <TextBlock Height="20" TextWrapping="Wrap" Text="{Binding Date}" Margin="0,-22,8,0" FontSize="16" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Stretch" TextAlignment="Right"/>
                 <toolkit:ContextMenuService.ContextMenu>
@@ -49,7 +49,7 @@
         <!--Panorama control-->
         <controls:Panorama x:Name="mainPanorama" Title="Geo World Clock" FontSize="14.667">
             <controls:Panorama.Background>
-                <ImageBrush ImageSource="worldmap.png" Stretch="None"/>
+                <ImageBrush x:Name="panoramaBackgroundImage" ImageSource="worldmap.png" Stretch="None"/>
             </controls:Panorama.Background>
             <!--Panorama item one-->
             <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
